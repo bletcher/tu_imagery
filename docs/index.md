@@ -180,7 +180,7 @@ There are two regions of interest,
 
 - Record temperature and note the temperature in onWater 
 
-- Record start and end times to add as a onWater journal entry. OnWater may add this feature automatically and may add the GPS track for your fishing bout. 
+- Record start and end times to add as an onWater journal entry. In the future, onWater may add this feature automatically and may add the GPS track for your fishing bout. 
 
 <hr>
 
