@@ -46,18 +46,19 @@ toc: true
 </style>
 
 <div class="hero">
-  <h1>TU/USGS imagery collaboration</h1>
+  <h1>TU/USGS imagery collaboration</h1>  
   <h2>This doucment is a guide to the imagery study in the Deerfield River watershed.</h2>
 </div>
 
-## Get ready
+<hr>
 
+## Get ready
   
 Download [onWater](www.onwaterapp.com) on your phone.
 
 1) Create account 
-2) Allow location within the application:
-3) Make sure you turn on geolocation of images-
+2) Allow location within the application
+3) Make sure you turn on geolocation of images
 
 <div class="tip" style="max-width: 740px;">
 
