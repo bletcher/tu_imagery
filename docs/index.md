@@ -53,7 +53,7 @@ toc: true
 <hr>
 
 ## Get ready
-  dummy
+  dumm  
 Download [onWater](www.onwaterapp.com) on your phone.
 
 1) Create account 
