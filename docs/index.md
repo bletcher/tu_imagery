@@ -52,13 +52,17 @@ toc: true
 
 <hr>
 
+Welcome to **TroutSpotter**! This tool gives anglers the power of Artificial Intelligence (AI) to identify individual fish from photos. It’s not only fun for you to have your catch uniquely identified, but that identity can help us understand things like how often fish get recaptured, how they move throughout a system, and even to estimate population sizes.  By participating in this community science effort that we are launching in four focal watersheds in 2024 (including the Deerfield), you can gain a deeper understanding of your home waters while helping advance a revolutionary new approach for fisheries management, science and conservation!
+
+<hr>
+
 ## Get ready
-  dumm  
+
 Download [onWater](www.onwaterapp.com) on your phone.
 
-1) Create account 
-2) Allow location within the application
-3) Make sure you turn on geolocation of images
+1) Create your account and fill in your user profile
+2) Allow 'location services' within the application
+3) Make sure you turn on geolocation of images in the `settings` on your phone
 
 <div class="tip" style="max-width: 740px;">
 
@@ -165,6 +169,13 @@ There are two regions of interest,
     ${display(div_map2)}
   </div>
 </div>
+
+<hr>
+
+## Start fishing  
+Either record the start time in the app or turn on the tracking function (note this will be used by us but kept as private information). This will help us understand how many fish are caught per hour.
+
+Remember to record the end time when you are done fishin.
 
 <hr>
 
