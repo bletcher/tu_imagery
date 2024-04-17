@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Tu Imagery</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="preload" as="style" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="stylesheet" type="text/css" href="./_npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="./_npm/leaflet@1.9.4/_esm.js">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+
+define({id: "96e45e16", inputs: ["display","L"], outputs: ["lat1","lon1","mag1","div_map1","map1","basemaps1"], body: (display,L) => {
+  const lat1 = 42.67;
+  const lon1 = -72.87;
+  const mag1 = 12;
+
+  const div_map1 = display(document.createElement("div"));
+  div_map1.style = "height: 400px;";
+
+  const map1 = L.map(div_map1)
+    .setView([lat1, lon1], mag1);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  })
+  .addTo(map1);
+
+  const basemaps1 = {
+    StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
+    Topography: L.tileLayer.wms('http://ows.mundialis.de/services/service?',   {layers: 'TOPO-WMS'}),
+    Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'OSM-Overlay-WMS'}),
+    USGS_USImagery: L.tileLayer(
+    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 20,
+      attribution:
+        'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>',
+    }
+  )
+  };
+  L.control.layers(basemaps1).addTo(map1);
+  basemaps1.StreetView.addTo(map1);
+return {lat1,lon1,mag1,div_map1,map1,basemaps1};
+}});
+
+define({id: "de3622e7", inputs: ["display","L"], outputs: ["lat2","lon2","mag2","div_map2","map2","basemaps2"], body: (display,L) => {
+  const lat2 = 42.618101;
+  const lon2 = -72.791500;
+  const mag2 = 11;
+
+  const div_map2 = display(document.createElement("div"));
+  div_map2.style = "height: 400px;";
+
+  const map2 = L.map(div_map2)
+    .setView([lat2, lon2], mag2);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  })
+  .addTo(map2);
+
+  const basemaps2 = {
+    StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
+    Topography: L.tileLayer.wms('http://ows.mundialis.de/services/service?',   {layers: 'TOPO-WMS'}),
+    Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'OSM-Overlay-WMS'}),
+    USGS_USImagery: L.tileLayer(
+    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 20,
+      attribution:
+        'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>',
+    }
+  )
+  };
+  L.control.layers(basemaps2).addTo(map2);
+  basemaps2.StreetView.addTo(map2);
+return {lat2,lon2,mag2,div_map2,map2,basemaps2};
+}});
+
+define({id: "ae4da473", inline: true, inputs: ["display","div_map1"], body: (display,div_map1) => {
+display(div_map1)
+}});
+
+define({id: "62ba5d8b", inline: true, inputs: ["display","div_map2"], body: (display,div_map2) => {
+display(div_map2)
+}});
+
+</script>
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type), h2:first-child, :not(h1) + h2">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#get-ready">Get ready</a></li>
+<li class="observablehq-secondary-link"><a href="#map-of-the-study-areas">Map of the study areas</a></li>
+<li class="observablehq-secondary-link"><a href="#fish-capture">Fish capture</a></li>
+<li class="observablehq-secondary-link"><a href="#take-an-image">Take an image</a></li>
+<li class="observablehq-secondary-link"><a href="#upload-the-image">Upload the image</a></li>
+<li class="observablehq-secondary-link"><a href="#verify-identities">Verify identities</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<style>
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--sans-serif);
+  margin: 4rem 0 8rem;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 2rem 0;
+  max-width: none;
+  font-size: 14vw;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h2 {
+  margin: 0;
+  max-width: 34em;
+  font-size: 20px;
+  font-style: initial;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--theme-foreground-muted);
+}
+
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 90px;
+  }
+}
+
+</style>
+<div class="hero">
+  <h1>TU/USGS imagery collaboration</h1>
+  <h2>This doucment is a guide to the imagery study in the Deerfield River watershed.</h2>
+</div>
+<h2 id="get-ready" tabindex="-1"><a class="observablehq-header-anchor" href="#get-ready">Get ready</a></h2>
+<p>Download <a href="www.onwaterapp.com">onWater</a> on your phone.</p>
+<ol>
+<li>Create account</li>
+<li>Allow location within the application:</li>
+<li>Make sure you turn on geolocation of images-</li>
+</ol>
+<div class="tip" style="max-width: 740px;">
+<pre><code>On iPhone:  
+  Settings -&gt; Privacy and Security -&gt; LocationServices -&gt; Camera Application 
+
+On android:   
+  Settings -&gt; secutity and privacy -&gt; permission manager -&gt; location [allow] 
+  Settings -&gt; secutity and privacy -&gt; permission manager -&gt; camera [allow] 
+</code></pre>
+</div>
+<p>The service we need in onWater is FREE. Ignore option to pay to upgrade. (hit “x” in the top right corner in the image below)</p>
+<img src="./_file/images/onW.0ad2bca6.png" style="max-height: 240px;">
+<hr>
+<h2 id="map-of-the-study-areas" tabindex="-1"><a class="observablehq-header-anchor" href="#map-of-the-study-areas">Map of the study areas</a></h2>
+<p>There are two regions of interest,</p>
+<ol>
+<li>The Deerfield River <strong>mainstem</strong> from Carbis Bend to the Hoosic tunnel bridge.</li>
+<li><strong>Blue lines</strong><br>
+a) Mill brook, Charlemont along route 8a<br>
+b) Bear river, from the confluence with the Deerfield</li>
+</ol>
+<div class="note">
+  Will add flowlines for the study areas.
+</div>
+<div id="cell-96e45e16" class="observablehq observablehq--block"></div>
+<div id="cell-de3622e7" class="observablehq observablehq--block"></div>
+<div class="grid grid-cols-2">
+  <div class="card">
+    <h1> Mainstem </h1>
+    <span id="cell-ae4da473" class="observablehq--loading"></span>
+  </div>
+  <div class="card">
+    <h1> Blue lines </h1>
+    <span id="cell-62ba5d8b" class="observablehq--loading"></span>
+  </div>
+</div>
+<hr>
+<h2 id="fish-capture" tabindex="-1"><a class="observablehq-header-anchor" href="#fish-capture">Fish capture</a></h2>
+<ul>
+<li>
+<p>Keep them wet and minimize handling. If your shot is out of the water, do not exceed 5 seconds out of water.</p>
+</li>
+<li>
+<p>Make sure your hands are wet.</p>
+</li>
+<li>
+<p>Use barbless hooks and rubberized (silicone) nets.</p>
+</li>
+<li>
+<p>If water temp is above 68 F, please do not fish.</p>
+</li>
+<li>
+<p>Record temperature and note the temperature in onWater</p>
+</li>
+<li>
+<p>Record start and end times to add as a onWater journal entry. OnWater may add this feature automatically and may add the GPS track for your fishing bout.</p>
+</li>
+</ul>
+<hr>
+<h2 id="take-an-image" tabindex="-1"><a class="observablehq-header-anchor" href="#take-an-image">Take an image</a></h2>
+<p>Two possibilities:</p>
+<ol>
+<li>
+<p>Take images and upload to onWater later</p>
+</li>
+<li>
+<p>Use onWater in journal mode and take the picture from within onWater. This is also good for taking notes and making sure you don't forget to upload images later :)</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><em>What</em>: take a picture of the <strong>left</strong> flank of the fish in the net. Only one photo angle is necessary, but extra images do not hurt. Extra images can also be of the right side of the fish, but we will only use the left flank for individual idntification.</p>
+</li>
+<li>
+<p><em>Where</em>: for now, fish randomly within study area, but it is also OK to include pictures from outside of the set study area (any fish picture from any stream is a helpful fish picture!).</p>
+</li>
+<li>
+<p><em>How</em>: try to minimize <strong>glare</strong> in the image as much as possible (you may need to remove polarized glasses – if you want you could also try a polarizing filter for your phone – we don’t know much about this, but there are filters available online...). Also, try to avoid dark images in <strong>shadow</strong>.<br>
+Attempt to capture the full length of the fish and avoid thumbs and fingers in the shot.</p>
+</li>
+</ul>
+<p>Add comments to note section in onWater.<br>
+Examples include:</p>
+<ul>
+<li>relative flow rate</li>
+<li>water temperature</li>
+<li>air temperature</li>
+<li>the fly used</li>
+<li>condition of the fish</li>
+<li>how hard it fought</li>
+<li>any scars? describe them</li>
+</ul>
+<p>One possiblity if you really want to get the perfect image is to turn on forward-facing camera, start recording video and lift the fish into the frame. Images can be extracted later and uploaded to onWater.</p>
+<hr>
+<h2 id="upload-the-image" tabindex="-1"><a class="observablehq-header-anchor" href="#upload-the-image">Upload the image</a></h2>
+<ol>
+<li>
+<p>Use onWater in journal mode and take the picture from within onWater.<br>
+You are done.</p>
+</li>
+<li>
+<p>Take images and upload to onWater later<br>
+From Matt: "I recommend taking the photo and then uploading into the app later when you are off the water. After you upload the photo the app will populate with weather and flow information if it is able.<br>
+First step is to open the OnWater app. I hit the X on the upper right hand corner of any pop ups that are asking me to upgrade my membership so that it brings me to the home page which should be a map of your location.<br>
+Next I select the Journal tab in the lower left corner of the app screen and then I select the camera icon and then select "image". This brings you to your camera roll where you can select the photo you want to upload. Once selected you will have the chance to fill in any details about the photo. Then select "Save" in the upper right hand corner. Afterwards you can re open the photo and see if any of the extra data has been populated."</p>
+</li>
+</ol>
+<hr>
+<h2 id="verify-identities" tabindex="-1"><a class="observablehq-header-anchor" href="#verify-identities">Verify identities</a></h2>
+<p>This is in progress. WildMe will provide probabilities of <strong>individual identity</strong> for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.</p>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-17T13:50:50">Apr 17, 2024</a>.</div>
+</footer>
+</div>
