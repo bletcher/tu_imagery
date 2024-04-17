@@ -52,7 +52,7 @@ toc: true
 
 ## Get ready
 
-   
+  
 Download [onWater](www.onwaterapp.com) on your phone.
 
 1) Create account 
@@ -70,15 +70,11 @@ Download [onWater](www.onwaterapp.com) on your phone.
 
 </div>
 
- The service we need in onWater is FREE. Ignore option to pay to upgrade. (hit “x” in the top right corner) 
+ The service we need in onWater is FREE. Ignore option to pay to upgrade. (hit “x” in the top right corner in the image below) 
 
-<div class="note">
-  Image below is not loading for unkonwn reason.
-</div>
-
-![image](./docs/images/onW.png)
-<img src="./docs/images/onW.png">
-
+<img src="./images/onW.png" style="max-height: 240px;">
+<hr>
+  
 ## Map of the study areas
 There are two regions of interest,  
   1) The Deerfield River **mainstem** from Carbis Bend to the Hoosic tunnel bridge.  
@@ -169,6 +165,8 @@ There are two regions of interest,
   </div>
 </div>
 
+<hr>
+
 ## Fish capture
 
 - Keep them wet and minimize handling. If your shot is out of the water, do not exceed 5 seconds out of water. 
@@ -182,6 +180,8 @@ There are two regions of interest,
 - Record temperature and note the temperature in onWater 
 
 - Record start and end times to add as a onWater journal entry. OnWater may add this feature automatically and may add the GPS track for your fishing bout. 
+
+<hr>
 
 ## Take an image
 Two possibilities:
@@ -208,6 +208,8 @@ Add comments to note section in onWater.
 
  One possiblity if you really want to get the perfect image is to turn on forward-facing camera, start recording video and lift the fish into the frame. Images can be extracted later and uploaded to onWater. 
 
+<hr>
+
 ## Upload the image
 1. Use onWater in journal mode and take the picture from within onWater.  
 You are done.
@@ -217,7 +219,7 @@ From Matt: "I recommend taking the photo and then uploading into the app later w
 First step is to open the OnWater app. I hit the X on the upper right hand corner of any pop ups that are asking me to upgrade my membership so that it brings me to the home page which should be a map of your location.  
 Next I select the Journal tab in the lower left corner of the app screen and then I select the camera icon and then select "image". This brings you to your camera roll where you can select the photo you want to upload. Once selected you will have the chance to fill in any details about the photo. Then select "Save" in the upper right hand corner. Afterwards you can re open the photo and see if any of the extra data has been populated."  
 
-
+<hr>
 
 ## Verify identities
 This is in progress. WildMe will provide probabilities of **individual identity** for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.
