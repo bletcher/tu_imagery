@@ -79,8 +79,12 @@ Download [onWater](www.onwaterapp.com) on your phone.
 
 <img src="./images/onW.png" style="max-height: 240px;">
 <hr>
-  
-## Map of the study areas
+
+<div class="note">
+  Will add tabs to allow quick selection of each study location.
+</div>
+
+## Map of the study areas in the Deerfield  
 There are two regions of interest,  
   1) The Deerfield River **mainstem** from Carbis Bend to the Hoosic tunnel bridge.  
   2) **Blue lines**  
@@ -169,6 +173,10 @@ There are two regions of interest,
     ${display(div_map2)}
   </div>
 </div>
+
+### Other locations to be added
+
+
 
 <hr>
 
