@@ -81,25 +81,22 @@ Download [onWater](www.onwaterapp.com) on your phone.
 <hr>
 
 <div class="note">
-  Will add tabs to allow quick selection of each study location.
+  Will add tabs to allow quick selection of each study location across the country.
 </div>
 
 ## Map of the study areas in the Deerfield  
 There are two regions of interest,  
   1) The Deerfield River **mainstem** from Carbis Bend to the Hoosic tunnel bridge.  
   2) **Blue lines**  
-    a) Mill brook, Charlemont along route 8a  
-    b) Bear river, from the confluence with the Deerfield
+    a) Mill Brook, Charlemont along route 8a  
+    b) Bear River, from the confluence with the Deerfield
 
-<div class="note">
-  Will add flowlines for the study areas.
-</div>
-
+Markers in the maps below represent beginning and ends of the study areas on each river.
 ```js
 
-  const lat1 = 42.67;
-  const lon1 = -72.87;
-  const mag1 = 12;
+  const lat1 = 42.658;
+  const lon1 = -72.91;
+  const mag1 = 13;
 
   const div_map1 = display(document.createElement("div"));
   div_map1.style = "height: 400px;";
@@ -107,32 +104,92 @@ There are two regions of interest,
   const map1 = L.map(div_map1)
     .setView([lat1, lon1], mag1);
 
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  })
+  L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   
+      {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }
+  )
   .addTo(map1);
 
   const basemaps1 = {
-    StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
-    Topography: L.tileLayer.wms('http://ows.mundialis.de/services/service?',   {layers: 'TOPO-WMS'}),
-    Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'OSM-Overlay-WMS'}),
+    USGS_hydro: L.tileLayer(
+      'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}',
+      {
+        attribution: '<a href="http://www.doi.gov">U.S. Department of the Interior</a> | <a href="http://www.usgs.gov">U.S. Geological Survey</a> | <a href="http://www.usgs.gov/laws/policies_notices.html">Policies</a>',
+        maxZoom: 20
+      }
+    ),
+    StreetView: L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   
+      {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}
+    ),
+    Topography: L.tileLayer.wms(
+      'http://ows.mundialis.de/services/service?',   
+      {layers: 'TOPO-WMS'}
+    ),
+    Places: L.tileLayer.wms(
+      'http://ows.mundialis.de/services/service?', 
+      {layers: 'OSM-Overlay-WMS'}
+    ),
     USGS_USImagery: L.tileLayer(
-    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
-    {
-      maxZoom: 20,
-      attribution:
+      'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+      {
+        maxZoom: 20,
+        attribution:
         'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>',
-    }
-  )
+      }
+    )
   };
   L.control.layers(basemaps1).addTo(map1);
-  basemaps1.StreetView.addTo(map1);
+  basemaps1.USGS_hydro.addTo(map1);
+```
+
+```js
+    const markers1 = [
+      {
+        position: [42.66866, -72.958674],
+        popupText: 'Deerfield river-bottom'
+      },
+      {
+        position: [42.674221, -72.995143],
+        popupText: 'Deerfield River-top'
+      }
+    ];
+
+    // Define the custom brook trout marker icon using SVG
+    /*
+    const brookTroutIcon = L.icon({
+      iconUrl: //'trout.png',
+      'data:image/svg+xml,%3Csvg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M256 0C114.615 0 0 114.615 0 256s114.615 256 256 256 256-114.615 256-256S397.385 0 256 0zm0 480c-123.519 0-224-100.481-224-224S132.481 32 256 32s224 100.481 224 224-100.481 224-224 224z" fill="%23007bff"/%3E%3Cpath d="M371.077 191.077c-10.923-18.923-36.077-24-67.077-24h-100c-31 0-56.154 5.077-67.077 24-10.923 18.923-4.923 66.077 20.077 98.077 25 32 74 56 147 56s122-24 147-56c25-32 31-79.154 20.077-98.077zM256 352c-53.019 0-96-42.981-96-96s42.981-96 96-96 96 42.981 96 96-42.981 96-96 96z" fill="%23fff"/%3E%3C/svg%3E',
+      iconSize: [28, 28],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -16]
+    });
+*/
+    // Add the markers to the map
+    markers1.forEach(function(marker) {
+      L.marker(marker.position, { icon: brookTroutIcon })
+        .addTo(map1)
+        .bindPopup(marker.popupText);
+    });
+ 
+const popup1 = L.popup();
+
+function onMapClick1(e) {
+    popup1
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map1);
+}
+
+map1.on('click', onMapClick1);
 ```
 
 ```js
 
-  const lat2 = 42.618101;
-  const lon2 = -72.791500;
+  const lat2 = 42.59;
+  const lon2 = -72.57;
   const mag2 = 11;
 
   const div_map2 = display(document.createElement("div"));
@@ -141,27 +198,97 @@ There are two regions of interest,
   const map2 = L.map(div_map2)
     .setView([lat2, lon2], mag2);
 
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  })
+
+  L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   
+      {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }
+  )
   .addTo(map2);
 
   const basemaps2 = {
-    StreetView: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
-    Topography: L.tileLayer.wms('http://ows.mundialis.de/services/service?',   {layers: 'TOPO-WMS'}),
-    Places: L.tileLayer.wms('http://ows.mundialis.de/services/service?', {layers: 'OSM-Overlay-WMS'}),
+    USGS_hydro: L.tileLayer(
+      'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}',
+      {
+        attribution: '<a href="http://www.doi.gov">U.S. Department of the Interior</a> | <a href="http://www.usgs.gov">U.S. Geological Survey</a> | <a href="http://www.usgs.gov/laws/policies_notices.html">Policies</a>',
+        maxZoom: 20
+      }
+    ),
+    StreetView: L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',   
+      {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}
+    ),
+    Topography: L.tileLayer.wms(
+      'http://ows.mundialis.de/services/service?',   
+      {layers: 'TOPO-WMS'}
+    ),
+    Places: L.tileLayer.wms(
+      'http://ows.mundialis.de/services/service?', 
+      {layers: 'OSM-Overlay-WMS'}
+    ),
     USGS_USImagery: L.tileLayer(
-    'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
-    {
-      maxZoom: 20,
-      attribution:
+      'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+      {
+        maxZoom: 20,
+        attribution:
         'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>',
-    }
-  )
+      }
+    )
   };
   L.control.layers(basemaps2).addTo(map2);
-  basemaps2.StreetView.addTo(map2);
+  basemaps2.USGS_hydro.addTo(map2);
 ```
+
+```js
+    const markers2 = [
+      {
+        position: [42.62599, -72.871978],
+        popupText: 'Mill Brook-bottom'
+      },
+      {
+        position: [42.658304, -72.857469],
+        popupText: 'Mill Brook-top'
+      },
+      {
+        position: [42.562414, -72.699211],
+        popupText: 'Bear river-bottom'
+      },
+      {
+        position: [42.537248, -72.752475],
+        popupText: 'Marker 4'
+      }
+    ];
+
+    // Define the custom brook trout marker icon using SVG
+    const brookTroutIcon = L.icon({
+      iconUrl: //'trout.png',
+      'data:image/svg+xml,%3Csvg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M256 0C114.615 0 0 114.615 0 256s114.615 256 256 256 256-114.615 256-256S397.385 0 256 0zm0 480c-123.519 0-224-100.481-224-224S132.481 32 256 32s224 100.481 224 224-100.481 224-224 224z" fill="%23007bff"/%3E%3Cpath d="M371.077 191.077c-10.923-18.923-36.077-24-67.077-24h-100c-31 0-56.154 5.077-67.077 24-10.923 18.923-4.923 66.077 20.077 98.077 25 32 74 56 147 56s122-24 147-56c25-32 31-79.154 20.077-98.077zM256 352c-53.019 0-96-42.981-96-96s42.981-96 96-96 96 42.981 96 96-42.981 96-96 96z" fill="%23fff"/%3E%3C/svg%3E',
+      iconSize: [28, 28],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -16]
+    });
+
+    // Add the markers to the map
+    markers2.forEach(function(marker) {
+      L.marker(marker.position, { icon: brookTroutIcon })
+        .addTo(map2)
+        .bindPopup(marker.popupText);
+    });
+ 
+const popup2 = L.popup();
+
+function onMapClick2(e) {
+    popup2
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map2);
+}
+
+map2.on('click', onMapClick2);
+
+```
+
 
 <div class="grid grid-cols-2">
   <div class="card">
@@ -174,10 +301,6 @@ There are two regions of interest,
   </div>
 </div>
 
-### Other locations to be added
-
-
-
 <hr>
 
 ## Start fishing  
@@ -188,7 +311,6 @@ Remember to record the end time when you are done fishin.
 <hr>
 
 ## Fish capture
-
 - Keep them wet and minimize handling. If your shot is out of the water, do not exceed 5 seconds out of water. 
 
 - Make sure your hands are wet. 
