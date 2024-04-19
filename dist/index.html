@@ -17,7 +17,16 @@
 
 import {define} from "./_observablehq/client.js";
 
-define({id: "baf66315", inputs: ["display","L"], outputs: ["lat1","lon1","mag1","div_map1","map1","basemaps1"], body: (display,L) => {
+define({id: "ae4da473", inline: true, inputs: ["display","div_map1"], body: (display,div_map1) => {
+display(div_map1)
+}});
+
+define({id: "62ba5d8b", inline: true, inputs: ["display","div_map2"], body: (display,div_map2) => {
+display(div_map2)
+}});
+
+define({id: "216dd6bd", inputs: ["display","L"], outputs: ["lat1","lon1","mag1","div_map1","map1","basemaps1"], body: (display,L) => {
+// Map1
   const lat1 = 42.658;
   const lon1 = -72.91;
   const mag1 = 13;
@@ -111,7 +120,8 @@ define({id: "277aa700", inputs: ["L","brookTroutIconBottom","map1","brookTroutIc
 return {markersBottom1,markersTop1,popup1,onMapClick1};
 }});
 
-define({id: "4526f083", inputs: ["display","L"], outputs: ["lat2","lon2","mag2","div_map2","map2","basemaps2"], body: (display,L) => {
+define({id: "8dca61ac", inputs: ["display","L"], outputs: ["lat2","lon2","mag2","div_map2","map2","basemaps2"], body: (display,L) => {
+// Map2
   const lat2 = 42.59;
   const lon2 = -72.57;
   const mag2 = 11;
@@ -232,14 +242,6 @@ map2.on('click', onMapClick2);
 return {markersBottom2,brookTroutIconBottom,brookTroutIconTop,markersTop2,popup2,onMapClick2};
 }});
 
-define({id: "ae4da473", inline: true, inputs: ["display","div_map1"], body: (display,div_map1) => {
-display(div_map1)
-}});
-
-define({id: "62ba5d8b", inline: true, inputs: ["display","div_map2"], body: (display,div_map2) => {
-display(div_map2)
-}});
-
 </script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type), h2:first-child, :not(h1) + h2">
 <nav>
@@ -335,11 +337,7 @@ On android:
 a) Mill Brook, Charlemont along route 8a<br>
 b) Bear River, from the confluence with the Deerfield</li>
 </ol>
-<p>Markers in the maps below represent beginning and ends of the study areas on each river.</p>
-<div id="cell-baf66315" class="observablehq observablehq--block"></div>
-<div id="cell-277aa700" class="observablehq observablehq--block"></div>
-<div id="cell-4526f083" class="observablehq observablehq--block"></div>
-<div id="cell-18dc9994" class="observablehq observablehq--block"></div>
+<p>Markers in the maps below represent beginning (green) and ends (red) of the study areas on each river.</p>
 <div class="grid grid-cols-2">
   <div class="card">
     <h1> Mainstem </h1>
@@ -428,8 +426,12 @@ Next I select the Journal tab in the lower left corner of the app screen and the
 <hr>
 <h2 id="verify-identities" tabindex="-1"><a class="observablehq-header-anchor" href="#verify-identities">Verify identities</a></h2>
 <p>This is in progress. WildMe will provide probabilities of <strong>individual identity</strong> for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.</p>
+<div id="cell-216dd6bd" class="observablehq observablehq--block"></div>
+<div id="cell-277aa700" class="observablehq observablehq--block"></div>
+<div id="cell-8dca61ac" class="observablehq observablehq--block"></div>
+<div id="cell-18dc9994" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-18T16:45:36">Apr 18, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-19T13:30:13">Apr 19, 2024</a>.</div>
 </footer>
 </div>

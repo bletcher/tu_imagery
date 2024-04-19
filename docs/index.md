@@ -91,9 +91,88 @@ There are two regions of interest,
     a) Mill Brook, Charlemont along route 8a  
     b) Bear River, from the confluence with the Deerfield
 
-Markers in the maps below represent beginning and ends of the study areas on each river.
-```js
+Markers in the maps below represent beginning (green) and ends (red) of the study areas on each river.  
 
+<div class="grid grid-cols-2">
+  <div class="card">
+    <h1> Mainstem </h1>
+    ${display(div_map1)}
+  </div>
+  <div class="card">
+    <h1> Blue lines </h1>
+    ${display(div_map2)}
+  </div>
+</div>
+
+<hr>
+
+## Start fishing  
+Either record the start time in the app or turn on the tracking function (note this will be used by us but kept as private information). This will help us understand how many fish are caught per hour.
+
+Remember to record the end time when you are done fishin.
+
+<hr>
+
+## Fish capture
+- Keep them wet and minimize handling. If your shot is out of the water, do not exceed 5 seconds out of water. 
+
+- Make sure your hands are wet. 
+
+- Use barbless hooks and rubberized (silicone) nets. 
+
+- If water temp is above 68 F, please do not fish. 
+
+- Record temperature and note the temperature in onWater 
+
+- Record start and end times to add as an onWater journal entry. In the future, onWater may add this feature automatically and may add the GPS track for your fishing bout. 
+
+<hr>
+
+## Take an image
+Two possibilities:
+1. Take images and upload to onWater later 
+
+2. Use onWater in journal mode and take the picture from within onWater. This is also good for taking notes and making sure you don't forget to upload images later :)
+
+- *What*: take a picture of the **left** flank of the fish in the net. Only one photo angle is necessary, but extra images do not hurt. Extra images can also be of the right side of the fish, but we will only use the left flank for individual idntification.
+ - *Where*: for now, fish randomly within study area, but it is also OK to include pictures from outside of the set study area (any fish picture from any stream is a helpful fish picture!). 
+
+- *How*: try to minimize **glare** in the image as much as possible (you may need to remove polarized glasses – if you want you could also try a polarizing filter for your phone – we don’t know much about this, but there are filters available online...). Also, try to avoid dark images in **shadow**.  
+Attempt to capture the full length of the fish and avoid thumbs and fingers in the shot. 
+
+Add comments to note section in onWater.  
+  Examples include:
+  - relative flow rate  
+  - water temperature 
+  - air temperature 
+  - the fly used
+  - condition of the fish 
+  - how hard it fought 
+  - any scars? describe them 
+
+
+ One possiblity if you really want to get the perfect image is to turn on forward-facing camera, start recording video and lift the fish into the frame. Images can be extracted later and uploaded to onWater. 
+
+<hr>
+
+## Upload the image
+1. Use onWater in journal mode and take the picture from within onWater.  
+You are done.
+
+2. Take images and upload to onWater later  
+From Matt: "I recommend taking the photo and then uploading into the app later when you are off the water. After you upload the photo the app will populate with weather and flow information if it is able.  
+First step is to open the OnWater app. I hit the X on the upper right hand corner of any pop ups that are asking me to upgrade my membership so that it brings me to the home page which should be a map of your location.  
+Next I select the Journal tab in the lower left corner of the app screen and then I select the camera icon and then select "image". This brings you to your camera roll where you can select the photo you want to upload. Once selected you will have the chance to fill in any details about the photo. Then select "Save" in the upper right hand corner. Afterwards you can re open the photo and see if any of the extra data has been populated."  
+
+<hr>
+
+## Verify identities
+This is in progress. WildMe will provide probabilities of **individual identity** for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.
+
+
+
+```js
+// Map1
   const lat1 = 42.658;
   const lon1 = -72.91;
   const mag1 = 13;
@@ -186,7 +265,7 @@ Markers in the maps below represent beginning and ends of the study areas on eac
 ```
 
 ```js
-
+// Map2
   const lat2 = 42.59;
   const lon2 = -72.57;
   const mag2 = 11;
@@ -304,80 +383,3 @@ function onMapClick2(e) {
 map2.on('click', onMapClick2);
 
 ```
-
-
-<div class="grid grid-cols-2">
-  <div class="card">
-    <h1> Mainstem </h1>
-    ${display(div_map1)}
-  </div>
-  <div class="card">
-    <h1> Blue lines </h1>
-    ${display(div_map2)}
-  </div>
-</div>
-
-<hr>
-
-## Start fishing  
-Either record the start time in the app or turn on the tracking function (note this will be used by us but kept as private information). This will help us understand how many fish are caught per hour.
-
-Remember to record the end time when you are done fishin.
-
-<hr>
-
-## Fish capture
-- Keep them wet and minimize handling. If your shot is out of the water, do not exceed 5 seconds out of water. 
-
-- Make sure your hands are wet. 
-
-- Use barbless hooks and rubberized (silicone) nets. 
-
-- If water temp is above 68 F, please do not fish. 
-
-- Record temperature and note the temperature in onWater 
-
-- Record start and end times to add as an onWater journal entry. In the future, onWater may add this feature automatically and may add the GPS track for your fishing bout. 
-
-<hr>
-
-## Take an image
-Two possibilities:
-1. Take images and upload to onWater later 
-
-2. Use onWater in journal mode and take the picture from within onWater. This is also good for taking notes and making sure you don't forget to upload images later :)
-
-- *What*: take a picture of the **left** flank of the fish in the net. Only one photo angle is necessary, but extra images do not hurt. Extra images can also be of the right side of the fish, but we will only use the left flank for individual idntification.
- - *Where*: for now, fish randomly within study area, but it is also OK to include pictures from outside of the set study area (any fish picture from any stream is a helpful fish picture!). 
-
-- *How*: try to minimize **glare** in the image as much as possible (you may need to remove polarized glasses – if you want you could also try a polarizing filter for your phone – we don’t know much about this, but there are filters available online...). Also, try to avoid dark images in **shadow**.  
-Attempt to capture the full length of the fish and avoid thumbs and fingers in the shot. 
-
-Add comments to note section in onWater.  
-  Examples include:
-  - relative flow rate  
-  - water temperature 
-  - air temperature 
-  - the fly used
-  - condition of the fish 
-  - how hard it fought 
-  - any scars? describe them 
-
-
- One possiblity if you really want to get the perfect image is to turn on forward-facing camera, start recording video and lift the fish into the frame. Images can be extracted later and uploaded to onWater. 
-
-<hr>
-
-## Upload the image
-1. Use onWater in journal mode and take the picture from within onWater.  
-You are done.
-
-2. Take images and upload to onWater later  
-From Matt: "I recommend taking the photo and then uploading into the app later when you are off the water. After you upload the photo the app will populate with weather and flow information if it is able.  
-First step is to open the OnWater app. I hit the X on the upper right hand corner of any pop ups that are asking me to upgrade my membership so that it brings me to the home page which should be a map of your location.  
-Next I select the Journal tab in the lower left corner of the app screen and then I select the camera icon and then select "image". This brings you to your camera roll where you can select the photo you want to upload. Once selected you will have the chance to fill in any details about the photo. Then select "Save" in the upper right hand corner. Afterwards you can re open the photo and see if any of the extra data has been populated."  
-
-<hr>
-
-## Verify identities
-This is in progress. WildMe will provide probabilities of **individual identity** for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.
