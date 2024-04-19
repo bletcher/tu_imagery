@@ -222,6 +222,14 @@ This is in progress. WildMe will provide probabilities of **individual identity*
   };
   L.control.layers(basemaps1).addTo(map1);
   basemaps1.USGS_hydro.addTo(map1);
+
+  // Store the initial map view
+  const initialView1 = map1.getBounds();
+
+  // Update the map view when the window is resized
+  window.addEventListener('resize', function() {
+    map1.fitBounds(initialView1);
+  });
 ```
 
 ```js
@@ -316,7 +324,17 @@ This is in progress. WildMe will provide probabilities of **individual identity*
   };
   L.control.layers(basemaps2).addTo(map2);
   basemaps2.USGS_hydro.addTo(map2);
+
+
+  // Store the initial map view
+  const initialView2 = map2.getBounds();
+
+  // Update the map view when the window is resized
+  window.addEventListener('resize', function() {
+    map2.fitBounds(initialView2);
+  });
 ```
+
 
 ```js
     const markersBottom2 = [

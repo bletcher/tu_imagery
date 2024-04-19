@@ -25,7 +25,7 @@ define({id: "62ba5d8b", inline: true, inputs: ["display","div_map2"], body: (dis
 display(div_map2)
 }});
 
-define({id: "216dd6bd", inputs: ["display","L"], outputs: ["lat1","lon1","mag1","div_map1","map1","basemaps1"], body: (display,L) => {
+define({id: "b211e25b", inputs: ["display","L"], outputs: ["lat1","lon1","mag1","div_map1","map1","basemaps1","initialView1"], body: (display,L) => {
 // Map1
   const lat1 = 42.658;
   const lon1 = -72.91;
@@ -76,7 +76,15 @@ define({id: "216dd6bd", inputs: ["display","L"], outputs: ["lat1","lon1","mag1",
   };
   L.control.layers(basemaps1).addTo(map1);
   basemaps1.USGS_hydro.addTo(map1);
-return {lat1,lon1,mag1,div_map1,map1,basemaps1};
+
+  // Store the initial map view
+  const initialView1 = map1.getBounds();
+
+  // Update the map view when the window is resized
+  window.addEventListener('resize', function() {
+    map1.fitBounds(initialView1);
+  });
+return {lat1,lon1,mag1,div_map1,map1,basemaps1,initialView1};
 }});
 
 define({id: "277aa700", inputs: ["L","brookTroutIconBottom","map1","brookTroutIconTop"], outputs: ["markersBottom1","markersTop1","popup1","onMapClick1"], body: (L,brookTroutIconBottom,map1,brookTroutIconTop) => {
@@ -120,7 +128,7 @@ define({id: "277aa700", inputs: ["L","brookTroutIconBottom","map1","brookTroutIc
 return {markersBottom1,markersTop1,popup1,onMapClick1};
 }});
 
-define({id: "8dca61ac", inputs: ["display","L"], outputs: ["lat2","lon2","mag2","div_map2","map2","basemaps2"], body: (display,L) => {
+define({id: "d96889f5", inputs: ["display","L"], outputs: ["lat2","lon2","mag2","div_map2","map2","basemaps2","initialView2"], body: (display,L) => {
 // Map2
   const lat2 = 42.59;
   const lon2 = -72.57;
@@ -172,7 +180,16 @@ define({id: "8dca61ac", inputs: ["display","L"], outputs: ["lat2","lon2","mag2",
   };
   L.control.layers(basemaps2).addTo(map2);
   basemaps2.USGS_hydro.addTo(map2);
-return {lat2,lon2,mag2,div_map2,map2,basemaps2};
+
+
+  // Store the initial map view
+  const initialView2 = map2.getBounds();
+
+  // Update the map view when the window is resized
+  window.addEventListener('resize', function() {
+    map2.fitBounds(initialView2);
+  });
+return {lat2,lon2,mag2,div_map2,map2,basemaps2,initialView2};
 }});
 
 define({id: "18dc9994", inputs: ["L","map2"], outputs: ["markersBottom2","brookTroutIconBottom","brookTroutIconTop","markersTop2","popup2","onMapClick2"], body: (L,map2) => {
@@ -426,12 +443,12 @@ Next I select the Journal tab in the lower left corner of the app screen and the
 <hr>
 <h2 id="verify-identities" tabindex="-1"><a class="observablehq-header-anchor" href="#verify-identities">Verify identities</a></h2>
 <p>This is in progress. WildMe will provide probabilities of <strong>individual identity</strong> for each submitted image. Users will verify the identity based on angler's experience with the fish and the current image and based on the images for the verified identies of previously-caught fish.</p>
-<div id="cell-216dd6bd" class="observablehq observablehq--block"></div>
+<div id="cell-b211e25b" class="observablehq observablehq--block"></div>
 <div id="cell-277aa700" class="observablehq observablehq--block"></div>
-<div id="cell-8dca61ac" class="observablehq observablehq--block"></div>
+<div id="cell-d96889f5" class="observablehq observablehq--block"></div>
 <div id="cell-18dc9994" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-19T13:30:13">Apr 19, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2024-04-19T14:17:56">Apr 19, 2024</a>.</div>
 </footer>
 </div>
